@@ -1,0 +1,9 @@
+---
+user_group: "{{ jenkins_user_group }}"
+user_name: "{{ jenkins_user_name }}"
+jenkins_user_name: jenkins
+jenkins_user_group: jenkins
+java_download_url: "https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.rpm"
+jenkins_download_url: "https://archives.jenkins.io/redhat-stable/jenkins-2.440.1-1.1.noarch.rpm"
+jenkins_agent_dir: /opt/jenkins_agent/
+
