@@ -113,3 +113,14 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 Результат:
 ![MultibranchPipelineLog](./pictures/4_Multibranch_Pipeline_Log.png)
 
+### 5. Scripted Pipeline
+
+![ScriptedPipelineJob](./pictures/5_Scripted_Pipeline.png)
+
+Результат:
+![ScriptedPipelineResult](./pictures/5_Scripted_Pipeline_Result.png)
+
+
+
+
+
