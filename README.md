@@ -63,11 +63,11 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ![JenkinsCredentials](./pictures/0_Jenkins_Agent_Credentials.png)
 
-   -- Kind: SSH Username with private key;
-   -- id: любой
-   -- description: любой
-   -- username: jenkins
-   -- Private Key => Enter directly => Key => Add: В поле вставить содержимое ~/.ssh/id_rsa виртуальной машины jenkins-master 
+ - Kind: SSH Username with private key;
+ - id: любой
+ - description: любой
+ - username: jenkins
+ - Private Key => Enter directly => Key => Add: В поле вставить содержимое ~/.ssh/id_rsa виртуальной машины jenkins-master 
 
 Разрешаем входящие соединения от агентов:
 
