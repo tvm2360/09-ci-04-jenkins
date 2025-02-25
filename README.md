@@ -106,3 +106,10 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 Результат:
 ![PipelineSCMJobResult](./pictures/3_Pipeline_SCM_Job_Result.png)
 
+### 4. Multibranch Pipeline
+
+![MultibranchPipelineJob](./pictures/4_Multibranch_Pipeline_Job.png)
+
+Результат:
+![MultibranchPipelineLog](./pictures/4_Multibranch_Pipeline_Log.png)
+
