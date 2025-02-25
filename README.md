@@ -151,4 +151,12 @@ node("linux"){
     }
 }
 ```
+### 8. Ссылки
+
+Репозиторий с ролью - https://github.com/tvm2360/08-ansible-05-testing/tree/1.0.1/playbook/roles/vector
+
+Declarative Pipeline - https://github.com/tvm2360/09-ci-04-jenkins/blob/main/Jenkinsfile
+
+Scripted Pipeline - https://github.com/tvm2360/09-ci-04-jenkins/blob/main/ScriptedJenkinsfile
+
 
