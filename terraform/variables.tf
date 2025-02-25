@@ -51,7 +51,7 @@ variable "each_vm" {
 
 variable "family" {
   type        = string
-  default     = "centos-7-oslogin"
+  default     = "centos-stream-9-oslogin"
   description = "OS family"
 }
 

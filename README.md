@@ -115,10 +115,16 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ### 5. Scripted Pipeline
 
-![ScriptedPipelineJob](./pictures/5_Scripted_Pipeline.png)
+![ScriptedPipelineJob](./pictures/5_Scripted_Pipeline_Job.png)
 
 Результат:
 ![ScriptedPipelineResult](./pictures/5_Scripted_Pipeline_Result.png)
+
+![ScriptedPipelineResult](./pictures/5_Scripted_Pipeline_Proto.png)
+
+
+
+
 
 
 

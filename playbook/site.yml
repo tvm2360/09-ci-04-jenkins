@@ -15,10 +15,9 @@
       register: ssh_key_info
     - name: Install JDK
       become: true
-      yum:
-        name: "{{ java_download_url }}"
+      package:
+        name: "{{ java_packages }}"
         state: present
-        validate_certs: false
 - name: Get Jenkins master installed
   hosts: jenkins_masters
   tasks:
@@ -101,6 +100,7 @@
           - docker-ce
           - docker-ce-cli
           - containerd.io
+          - python3-pip
         state: present
     - name: Update pip
       become_user: root
@@ -157,8 +157,7 @@
       pip:
         executable: pip3
         name:
-          - molecule==3.5.2
-          - molecule_docker
+          - molecule
           - yamllint
           - ansible-lint
           - flake8
