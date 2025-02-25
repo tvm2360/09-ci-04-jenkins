@@ -1,0 +1,132 @@
+Started by user tvm2360
+Running as SYSTEM
+Building remotely on Agent (linux ansible) in workspace /opt/jenkins_agent/workspace/Freestyle Job
+[Freestyle Job] $ /bin/sh -xe /tmp/jenkins17922855821307762020.sh
++ rm -rf ./08-ansible-05-testing
++ git clone https://github.com/tvm2360/08-ansible-05-testing.git
+Cloning into '08-ansible-05-testing'...
++ cd ./08-ansible-05-testing/playbook/roles/vector
++ molecule test -s default
+/usr/local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!
+  RequestsDependencyWarning)
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  from cryptography.exceptions import InvalidSignature
+INFO     default scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun...
+INFO     Set ANSIBLE_LIBRARY=/home/jenkins/.cache/ansible-compat/70b809/modules:/home/jenkins/.ansible/plugins/modules:/usr/share/ansible/plugins/modules
+INFO     Set ANSIBLE_COLLECTIONS_PATH=/home/jenkins/.cache/ansible-compat/70b809/collections:/home/jenkins/.ansible/collections:/usr/share/ansible/collections
+INFO     Set ANSIBLE_ROLES_PATH=/home/jenkins/.cache/ansible-compat/70b809/roles:/home/jenkins/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+INFO     Running default > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Running default > lint
+INFO     Lint is disabled.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+INFO     Sanity checks: 'docker'
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  from cryptography.exceptions import InvalidSignature
+changed: [localhost] => (item=centos)
+changed: [localhost] => (item=oraclelinux)
+changed: [localhost] => (item=ubuntu)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+ok: [localhost] => (item=centos)
+ok: [localhost] => (item=oraclelinux)
+ok: [localhost] => (item=ubuntu)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Running default > syntax
+
+playbook: /opt/jenkins_agent/workspace/Freestyle Job/08-ansible-05-testing/playbook/roles/vector/molecule/default/converge.yml
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  from cryptography.exceptions import InvalidSignature
+INFO     Running default > create
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] **********************************************
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  from cryptography.exceptions import InvalidSignature
+skipping: [localhost] => (item=None)
+skipping: [localhost] => (item=None)
+skipping: [localhost] => (item=None)
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item={'image': 'centos7:ansible', 'name': 'centos', 'pre_build_image': True})
+ok: [localhost] => (item={'image': 'oraclelinux:8', 'name': 'oraclelinux', 'pre_build_image': False})
+ok: [localhost] => (item={'image': 'ubuntu:20.04', 'name': 'ubuntu', 'pre_build_image': False})
+
+TASK [Create Dockerfiles from image names] *************************************
+skipping: [localhost] => (item={'image': 'centos7:ansible', 'name': 'centos', 'pre_build_image': True})
+changed: [localhost] => (item={'image': 'oraclelinux:8', 'name': 'oraclelinux', 'pre_build_image': False})
+changed: [localhost] => (item={'image': 'ubuntu:20.04', 'name': 'ubuntu', 'pre_build_image': False})
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item={'changed': False, 'skipped': True, 'skip_reason': 'Conditional result was False', 'item': {'image': 'centos7:ansible', 'name': 'centos', 'pre_build_image': True}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+ok: [localhost] => (item={'diff': [], 'dest': '/home/jenkins/.cache/molecule/vector/default/Dockerfile_oraclelinux_8', 'src': '/home/jenkins/.ansible/tmp/ansible-tmp-1740504644.1964192-21176-86822981234320/source', 'md5sum': 'f9cacaa9d21c67ac96d5557fa169277b', 'checksum': '690614bd4867cd2182229045ff4ec301bd6cd356', 'changed': True, 'uid': 1001, 'gid': 1002, 'owner': 'jenkins', 'group': 'jenkins', 'mode': '0600', 'state': 'file', 'size': 1042, 'invocation': {'module_args': {'src': '/home/jenkins/.ansible/tmp/ansible-tmp-1740504644.1964192-21176-86822981234320/source', 'dest': '/home/jenkins/.cache/molecule/vector/default/Dockerfile_oraclelinux_8', 'mode': '0600', 'follow': False, '_original_basename': 'Dockerfile.j2', 'checksum': '690614bd4867cd2182229045ff4ec301bd6cd356', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'image': 'oraclelinux:8', 'name': 'oraclelinux', 'pre_build_image': False}, 'ansible_loop_var': 'item', 'i': 1, 'ansible_index_var': 'i'})
+ok: [localhost] => (item={'diff': [], 'dest': '/home/jenkins/.cache/molecule/vector/default/Dockerfile_ubuntu_20_04', 'src': '/home/jenkins/.ansible/tmp/ansible-tmp-1740504645.563135-21176-174129800964976/source', 'md5sum': '84dd365820fd171639eec1118e3ebda4', 'checksum': '703571a5a8af2e857377f142d22875dc25d33b5a', 'changed': True, 'uid': 1001, 'gid': 1002, 'owner': 'jenkins', 'group': 'jenkins', 'mode': '0600', 'state': 'file', 'size': 1041, 'invocation': {'module_args': {'src': '/home/jenkins/.ansible/tmp/ansible-tmp-1740504645.563135-21176-174129800964976/source', 'dest': '/home/jenkins/.cache/molecule/vector/default/Dockerfile_ubuntu_20_04', 'mode': '0600', 'follow': False, '_original_basename': 'Dockerfile.j2', 'checksum': '703571a5a8af2e857377f142d22875dc25d33b5a', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'image': 'ubuntu:20.04', 'name': 'ubuntu', 'pre_build_image': False}, 'ansible_loop_var': 'item', 'i': 2, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] *********************************
+skipping: [localhost] => (item=molecule_local/centos7:ansible)
+ok: [localhost] => (item=molecule_local/oraclelinux:8)
+ok: [localhost] => (item=molecule_local/ubuntu:20.04)
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item={'image': 'centos7:ansible', 'name': 'centos', 'pre_build_image': True})
+ok: [localhost] => (item={'image': 'oraclelinux:8', 'name': 'oraclelinux', 'pre_build_image': False})
+ok: [localhost] => (item={'image': 'ubuntu:20.04', 'name': 'ubuntu', 'pre_build_image': False})
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=centos)
+changed: [localhost] => (item=oraclelinux)
+changed: [localhost] => (item=ubuntu)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+failed: [localhost] (item={'started': 1, 'finished': 0, 'ansible_job_id': '948209587260.21458', 'results_file': '/home/jenkins/.ansible_async/948209587260.21458', 'changed': True, 'failed': False, 'item': {'image': 'centos7:ansible', 'name': 'centos', 'pre_build_image': True}, 'ansible_loop_var': 'item'}) => {"ansible_job_id": "948209587260.21458", "ansible_loop_var": "item", "attempts": 1, "changed": false, "finished": 1, "item": {"ansible_job_id": "948209587260.21458", "ansible_loop_var": "item", "changed": true, "failed": false, "finished": 0, "item": {"image": "centos7:ansible", "name": "centos", "pre_build_image": true}, "results_file": "/home/jenkins/.ansible_async/948209587260.21458", "started": 1}, "msg": "Unsupported parameters for (community.docker.docker_container) module: command_handling Supported parameters include: api_version, auto_remove, blkio_weight, ca_cert, cap_drop, capabilities, cgroup_parent, cleanup, client_cert, client_key, command, comparisons, container_default_behavior, cpu_period, cpu_quota, cpu_shares, cpus, cpuset_cpus, cpuset_mems, debug, default_host_ip, detach, device_read_bps, device_read_iops, device_requests, device_write_bps, device_write_iops, devices, dns_opts, dns_search_domains, dns_servers, docker_host, domainname, entrypoint, env, env_file, etc_hosts, exposed_ports, force_kill, groups, healthcheck, hostname, ignore_image, image, init, interactive, ipc_mode, keep_volumes, kernel_memory, kill_signal, labels, links, log_driver, log_options, mac_address, memory, memory_reservation, memory_swap, memory_swappiness, mounts, name, network_mode, networks, networks_cli_compatible, oom_killer, oom_score_adj, output_logs, paused, pid_mode, pids_limit, privileged, published_ports, pull, purge_networks, read_only, recreate, removal_wait_timeout, restart, restart_policy, restart_retries, runtime, security_opts, shm_size, ssl_version, state, stop_signal, stop_timeout, sysctls, timeout, tls, tls_hostname, tmpfs, tty, ulimits, user, userns_mode, uts, validate_certs, volume_driver, volumes, volumes_from, working_dir", "stderr": "/usr/local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!\n  RequestsDependencyWarning)\n/usr/local/lib/python3.6/site-packages/paramiko/transport.py:33: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.\n  from cryptography.hazmat.backends import default_backend\n", "stderr_lines": ["/usr/local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!", "  RequestsDependencyWarning)", "/usr/local/lib/python3.6/site-packages/paramiko/transport.py:33: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.", "  from cryptography.hazmat.backends import default_backend"]}
+failed: [localhost] (item={'started': 1, 'finished': 0, 'ansible_job_id': '75746400159.21484', 'results_file': '/home/jenkins/.ansible_async/75746400159.21484', 'changed': True, 'failed': False, 'item': {'image': 'oraclelinux:8', 'name': 'oraclelinux', 'pre_build_image': False}, 'ansible_loop_var': 'item'}) => {"ansible_job_id": "75746400159.21484", "ansible_loop_var": "item", "attempts": 1, "changed": false, "finished": 1, "item": {"ansible_job_id": "75746400159.21484", "ansible_loop_var": "item", "changed": true, "failed": false, "finished": 0, "item": {"image": "oraclelinux:8", "name": "oraclelinux", "pre_build_image": false}, "results_file": "/home/jenkins/.ansible_async/75746400159.21484", "started": 1}, "msg": "Unsupported parameters for (community.docker.docker_container) module: command_handling Supported parameters include: api_version, auto_remove, blkio_weight, ca_cert, cap_drop, capabilities, cgroup_parent, cleanup, client_cert, client_key, command, comparisons, container_default_behavior, cpu_period, cpu_quota, cpu_shares, cpus, cpuset_cpus, cpuset_mems, debug, default_host_ip, detach, device_read_bps, device_read_iops, device_requests, device_write_bps, device_write_iops, devices, dns_opts, dns_search_domains, dns_servers, docker_host, domainname, entrypoint, env, env_file, etc_hosts, exposed_ports, force_kill, groups, healthcheck, hostname, ignore_image, image, init, interactive, ipc_mode, keep_volumes, kernel_memory, kill_signal, labels, links, log_driver, log_options, mac_address, memory, memory_reservation, memory_swap, memory_swappiness, mounts, name, network_mode, networks, networks_cli_compatible, oom_killer, oom_score_adj, output_logs, paused, pid_mode, pids_limit, privileged, published_ports, pull, purge_networks, read_only, recreate, removal_wait_timeout, restart, restart_policy, restart_retries, runtime, security_opts, shm_size, ssl_version, state, stop_signal, stop_timeout, sysctls, timeout, tls, tls_hostname, tmpfs, tty, ulimits, user, userns_mode, uts, validate_certs, volume_driver, volumes, volumes_from, working_dir", "stderr": "/usr/local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!\n  RequestsDependencyWarning)\n/usr/local/lib/python3.6/site-packages/paramiko/transport.py:33: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.\n  from cryptography.hazmat.backends import default_backend\n", "stderr_lines": ["/usr/local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!", "  RequestsDependencyWarning)", "/usr/local/lib/python3.6/site-packages/paramiko/transport.py:33: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.", "  from cryptography.hazmat.backends import default_backend"]}
+failed: [localhost] (item={'started': 1, 'finished': 0, 'ansible_job_id': '56681138984.21516', 'results_file': '/home/jenkins/.ansible_async/56681138984.21516', 'changed': True, 'failed': False, 'item': {'image': 'ubuntu:20.04', 'name': 'ubuntu', 'pre_build_image': False}, 'ansible_loop_var': 'item'}) => {"ansible_job_id": "56681138984.21516", "ansible_loop_var": "item", "attempts": 1, "changed": false, "finished": 1, "item": {"ansible_job_id": "56681138984.21516", "ansible_loop_var": "item", "changed": true, "failed": false, "finished": 0, "item": {"image": "ubuntu:20.04", "name": "ubuntu", "pre_build_image": false}, "results_file": "/home/jenkins/.ansible_async/56681138984.21516", "started": 1}, "msg": "Unsupported parameters for (community.docker.docker_container) module: command_handling Supported parameters include: api_version, auto_remove, blkio_weight, ca_cert, cap_drop, capabilities, cgroup_parent, cleanup, client_cert, client_key, command, comparisons, container_default_behavior, cpu_period, cpu_quota, cpu_shares, cpus, cpuset_cpus, cpuset_mems, debug, default_host_ip, detach, device_read_bps, device_read_iops, device_requests, device_write_bps, device_write_iops, devices, dns_opts, dns_search_domains, dns_servers, docker_host, domainname, entrypoint, env, env_file, etc_hosts, exposed_ports, force_kill, groups, healthcheck, hostname, ignore_image, image, init, interactive, ipc_mode, keep_volumes, kernel_memory, kill_signal, labels, links, log_driver, log_options, mac_address, memory, memory_reservation, memory_swap, memory_swappiness, mounts, name, network_mode, networks, networks_cli_compatible, oom_killer, oom_score_adj, output_logs, paused, pid_mode, pids_limit, privileged, published_ports, pull, purge_networks, read_only, recreate, removal_wait_timeout, restart, restart_policy, restart_retries, runtime, security_opts, shm_size, ssl_version, state, stop_signal, stop_timeout, sysctls, timeout, tls, tls_hostname, tmpfs, tty, ulimits, user, userns_mode, uts, validate_certs, volume_driver, volumes, volumes_from, working_dir", "stderr": "/usr/local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!\n  RequestsDependencyWarning)\n/usr/local/lib/python3.6/site-packages/paramiko/transport.py:33: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.\n  from cryptography.hazmat.backends import default_backend\n", "stderr_lines": ["/usr/local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.20) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!", "  RequestsDependencyWarning)", "/usr/local/lib/python3.6/site-packages/paramiko/transport.py:33: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.", "  from cryptography.hazmat.backends import default_backend"]}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=6    changed=2    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0
+
+CRITICAL Ansible return code was 2, command was: ['ansible-playbook', '--inventory', '/home/jenkins/.cache/molecule/vector/default/inventory', '--skip-tags', 'molecule-notest,notest', '/usr/local/lib/python3.6/site-packages/molecule_docker/playbooks/create.yml']
+WARNING  An error occurred during the test sequence action: 'create'. Cleaning up.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  from cryptography.exceptions import InvalidSignature
+changed: [localhost] => (item=centos)
+changed: [localhost] => (item=oraclelinux)
+changed: [localhost] => (item=ubuntu)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+ok: [localhost] => (item=centos)
+ok: [localhost] => (item=oraclelinux)
+ok: [localhost] => (item=ubuntu)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

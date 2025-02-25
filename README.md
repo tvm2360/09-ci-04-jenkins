@@ -78,3 +78,15 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 ![JenkinsState](./pictures/0_Jenkins_Agents_State.png)
 
 ## Основная часть
+
+### 1. Freestyle Job
+
+Шаги:
+![FreestyleSteps](./pictures/1_Freestyle_Step.png)
+
+Результат:
+![FreestyleResult](./pictures/1_Freestyle_Result.png)
+
+Протокол: [FreestyleResultProtocol](./add/1_Freestyle_Result_Prot.txt)
+
+### 2. Declarative Pipeline Job

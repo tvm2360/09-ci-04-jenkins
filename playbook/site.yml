@@ -152,4 +152,14 @@
       until: install_agent is succeeded
       retries: 10
       timeout: 10
-
+    - name: Install Molecule
+      become_user: root
+      pip:
+        executable: pip3
+        name:
+          - molecule==3.5.2
+          - molecule_docker
+          - yamllint
+          - ansible-lint
+          - flake8
+        state: present
