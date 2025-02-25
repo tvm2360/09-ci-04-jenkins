@@ -3,7 +3,6 @@
 ## Подготовка к выполнению
 
 ### Terraform - подготовка виртуальных машин
-
 ``` sh
 terraform apply
 ```
@@ -16,7 +15,6 @@ terraform apply
 - Java JDK 17.0.12 (java_download_url: "https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.rpm")
 
 - Jenkins 2.440.1 (jenkins_download_url: "https://archives.jenkins.io/redhat-stable/jenkins-2.440.1-1.1.noarch.rpm")
-
 ``` sh
 ansible-playbook -i ./inventory/hosts.yml site.yml
 ```
@@ -28,20 +26,51 @@ ansible-playbook -i ./inventory/hosts.yml site.yml
 ![AnsiblePlaybook](./pictures/0_Jenkins_Start.png)
 
 Для разблокировки Jenkins, в поле вставляем содержимое файла по указанному пути в виртуальной машины jenkins-master-01:
-
 ```sh
 ssh 89.169.145.73
 sudo -i
 cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
+
 Устанавливаем плагины:
 
-![JenkinsPlugins](./pictures/0_Jenkins_Download_Extensions.png)
+![JenkinsPlugins](./pictures/0_Jenkins_Install_Plugin.png)
 
-Вводим имя пользователя, пароль, данные и почту пользователя, и попадаем на стартовую страницу Jenkins:
+![JenkinsExtensions](./pictures/0_Jenkins_Download_Extensions.png)
+
+Вводим имя пользователя, пароль, данные и почту пользователя:
+
+![JenkinsUser](./pictures/0_Jenkins_Create_User.png)
+
+, и попадаем на стартовую страницу Jenkins:
 
 ![JenkinsPlugins](./pictures/0_Jenkins_Wellcome.png)
 
+Добавляем агента:
 
+![JenkinsAddAgent](./pictures/0_Jenkins_Agent_Add1.png)
 
+![JenkinsAddAgent](./pictures/0_Jenkins_Agent_Add2.png)
 
+ - Имя, описание: любое
+ - Количество процессов исполнителей: кол-во процессорных потоков
+ - Удаленная корневая директория: из значения переменной jenkins_agent_dir в ./playbook/group_vars/jenkins.yml
+ - Метки: на свое усмотрение
+ - Способ запуска: Launch agents via SSH
+ - реквизиты для входа:
+
+![JenkinsCredentials](./pictures/0_Jenkins_Agent_Credentials.png)
+
+   - Kind: SSH Username with private key;
+   - id: любой
+   - description: любой
+   - username: jenkins
+   - Private Key => Enter directly => Key => Add: В поле вставить содержимое ~/.ssh/id_rsa виртуальной машины jenkins-master 
+
+Разрешаем входящие соединения от агентов:
+
+![JenkinsSecurity](./pictures/0_Jenkins_Agent_Security.png)
+
+Состояние агентов:
+
+![JenkinsState](./pictures/0_Jenkins_Agents_State.png)

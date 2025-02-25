@@ -57,7 +57,7 @@ variable "family" {
 
 variable "default_user" {
   type        = string
-  default     = "centos"
+  default     = "jenkins"
   description = "Default user via ssh"
 }
 
