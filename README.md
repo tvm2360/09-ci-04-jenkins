@@ -25,6 +25,8 @@ ansible-playbook -i ./inventory/hosts.yml site.yml
 
 ![AnsiblePlaybook](./pictures/0_Jenkins_Start.png)
 
+### Jenkins - запуск, первоначальная настройка и проверка работоспособности
+
 Для разблокировки Jenkins, в поле вставляем содержимое файла по указанному пути в виртуальной машины jenkins-master-01:
 ```sh
 ssh 89.169.145.73
@@ -61,11 +63,11 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ![JenkinsCredentials](./pictures/0_Jenkins_Agent_Credentials.png)
 
-   - Kind: SSH Username with private key;
-   - id: любой
-   - description: любой
-   - username: jenkins
-   - Private Key => Enter directly => Key => Add: В поле вставить содержимое ~/.ssh/id_rsa виртуальной машины jenkins-master 
+   -- Kind: SSH Username with private key;
+   -- id: любой
+   -- description: любой
+   -- username: jenkins
+   -- Private Key => Enter directly => Key => Add: В поле вставить содержимое ~/.ssh/id_rsa виртуальной машины jenkins-master 
 
 Разрешаем входящие соединения от агентов:
 
@@ -74,3 +76,5 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 Состояние агентов:
 
 ![JenkinsState](./pictures/0_Jenkins_Agents_State.png)
+
+## Основная часть
