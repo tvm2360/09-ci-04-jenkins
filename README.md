@@ -99,4 +99,10 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 Результат:
 ![PipelineResult](./pictures/2_Pipeline_Result.png)
 
+### 3. Declarative Pipeline из Jenkinsfile
+
+![PipelineSCMJob](./pictures/3_Pipeline_SCM_Job.png)
+
+Результат:
+![PipelineSCMJobResult](./pictures/3_Pipeline_SCM_Job_Result.png)
 
