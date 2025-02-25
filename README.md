@@ -90,3 +90,13 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 Протокол: [FreestyleResultProtocol](./add/1_Freestyle_Result_Prot.txt)
 
 ### 2. Declarative Pipeline Job
+
+![PipelineJob](./pictures/2_Pipeline_Job.png)
+
+Шаги:
+![PipelineSteps](./pictures/2_Pipeline_Steps.png)
+
+Результат:
+![PipelineResult](./pictures/2_Pipeline_Result.png)
+
+
