@@ -122,11 +122,33 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ![ScriptedPipelineResult](./pictures/5_Scripted_Pipeline_Proto.png)
 
+### 6. Scripted Pipeline с флагами
 
+![ScriptedPipelineJob](./pictures/6_Scripted_Pipeline_Job.png)
 
+Результат:
+![ScriptedPipelineResult1](./pictures/6_Scripted_Pipeline_Result_False.png)
 
+![ScriptedPipelineResult1](./pictures/6_Scripted_Pipeline_Result_True.png)
 
+### 7. ScriptedJenkinsfile
 
-
-
+``` jenkins
+node("linux"){
+    stage("Git checkout"){
+        git 'https://github.com/aragastmatb/example-playbook.git'
+    }
+    stage("Sample define prod_run"){
+        prod_run=true
+    }
+    stage("Run playbook"){
+        if (prod_run){
+            sh 'ansible-playbook site.yml -i inventory/prod.yml'
+        }
+        else{
+            sh 'ansible-playbook site.yml -i inventory/prod.yml --check --diff'
+        }
+    }
+}
+```
 
