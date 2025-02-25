@@ -21,7 +21,7 @@ ansible-playbook -i ./inventory/hosts.yml site.yml
 
 ![AnsiblePlaybook](./pictures/0_Ansible_Playbook.png)
 
-В браузере http://89.169.145.73:8080/
+В браузере http://xxx.xxx.xxx.xxx:8080/
 
 ![AnsiblePlaybook](./pictures/0_Jenkins_Start.png)
 
@@ -29,7 +29,7 @@ ansible-playbook -i ./inventory/hosts.yml site.yml
 
 Для разблокировки Jenkins, в поле вставляем содержимое файла по указанному пути в виртуальной машины jenkins-master-01:
 ```sh
-ssh 89.169.145.73
+ssh xxx.xxx.xxx.xxx
 sudo -i
 cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
